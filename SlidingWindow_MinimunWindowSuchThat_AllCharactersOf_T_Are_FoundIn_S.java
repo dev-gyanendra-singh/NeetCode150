@@ -1,3 +1,4 @@
+
 public class SlidingWindow_MinimunWindowSuchThat_AllCharactersOf_T_Are_FoundIn_S {
     public static void main(String[] args) {
         System.out.println(new SlidingWindow_MinimunWindowSuchThat_AllCharactersOf_T_Are_FoundIn_S().minWindow("OUZODYXAZV", "XYZ"));
@@ -21,13 +22,14 @@ public class SlidingWindow_MinimunWindowSuchThat_AllCharactersOf_T_Are_FoundIn_S
                 count++;
             }
 
-            while (count == t.length()) {
+            while (count == t.length()) { // hmesha equal hone pr hi remove krne ka sochna chahiye
                 if (right - left + 1 < min) {
                     min = right - left + 1;
                     start = left;
                 }
                 char tc = s.charAt(left);
                 windowMap.put(tc, windowMap.getOrDefault(tc, 0) - 1);
+                // sbse leftmost ko dekho vo target window me hai and uski frequency to obv windowMap me km ho gai hai isliye required char bhi km ho jainge
                 if (targetMap.containsKey(tc) && windowMap.get(tc) < targetMap.get(tc)) {
                     count--;
                 }
